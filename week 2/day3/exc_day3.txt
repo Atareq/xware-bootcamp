@@ -1,0 +1,117 @@
+
+CREATE DATABASE faculty_db;
+
+\c faculty_db
+
+
+CREATE TABLE faculty (
+    f_id SERIAL PRIMARY KEY,
+    f_name VARCHAR NOT NULL
+);
+
+
+CREATE TABLE student (
+    stu_id SERIAL PRIMARY KEY,
+    f_name VARCHAR,
+    l_name VARCHAR,
+    f_phone VARCHAR,
+    l_phone VARCHAR,
+    birth_date VARCHAR
+);
+
+
+CREATE TABLE depart (
+    d_id SERIAL PRIMARY KEY,
+    d_name VARCHAR,
+    f_id INT NOT NULL,
+    FOREIGN KEY (f_id) REFERENCES faculty (f_id)
+);
+
+
+CREATE TABLE address (
+    a_id SERIAL PRIMARY KEY,
+    governorate VARCHAR,
+    city VARCHAR,
+    line_1 VARCHAR NOT NULL,
+    line_2 VARCHAR
+);
+
+
+CREATE TABLE student_address (
+    stu_a_id SERIAL PRIMARY KEY,
+    a_id INT,
+    stu_id INT,
+    FOREIGN KEY (a_id) REFERENCES address (a_id),
+    FOREIGN KEY (stu_id) REFERENCES student (stu_id)
+);
+
+
+CREATE TABLE course_table (
+    c_id SERIAL PRIMARY KEY,
+    sub_id INT,
+    duration INT,
+    p_id INT
+);
+
+
+CREATE TABLE subject (
+    sub_id SERIAL PRIMARY KEY,
+    sub_name VARCHAR,
+    sub_code INT,
+    f_id INT,
+    FOREIGN KEY (f_id) REFERENCES faculty (f_id)
+);
+#############################################################################
+inserting
+
+
+INSERT INTO faculty (f_name) VALUES ('tareq');
+INSERT INTO depart (d_name, f_id) VALUES
+    ('Computer Science', 1),
+    ('Mathematics', 1),
+    ('Physics', 1);
+
+INSERT INTO subject (sub_name, sub_code, f_id) VALUES
+
+    ('Database Management', 101, 1),
+    ('Programming ', 102, 1),
+    ('Data Structures', 103, 1),
+    
+    ('os', 201, 1),
+    ('OS', 202, 1),
+    ('Discrete ', 203, 1),
+    
+    ('elecctronics', 301, 1),
+    ('bio', 302, 1),
+    ('bioinformatices', 303, 1);
+INSERT INTO course_table (sub_id, duration, p_id) VALUES
+
+    (1, 5, 1),
+    (2, 4, 1),
+    (3, 6, 1),
+    (4, 5, 1),
+    (5, 4, 1),
+    (6, 6, 1),
+    (7, 5, 1),
+    (8, 4, 1),
+    (9, 6, 1);
+
+
+
+INSERT INTO student (f_name, l_name, f_phone, l_phone, birth_date) VALUES
+    ('ali', 'mostafa', '123456789', '987654321', '2000'),
+    ('Bob', 'abdo', '111111111', '222222222', '2001'),
+    ('hamsa', 'naser', '333333333', '444444444', '2001'),
+    ('H', 'MaHmood', '555555555', '666666666', '2002'),
+    ('merna', 'kero', '777777777', '888888888', '2002'),
+    ('Bob', 'abdo', '999999999', '000000000', '2000'),
+    ('hamsa', 'naser', '121212121', '343434343', '2000'),
+    ('ali', 'tareq', '565656565', '787878787', '99999'),
+    ('H', 'mostafa', '232323232', '454545454', '2002'),
+    ('H', 'MaHmood', '555555555', '666666666', '2002'),
+    ('merna', 'kero', '777777777', '888888888', '2002'),
+    ('Bob', 'abdo', '999999999', '000000000', '2000'),
+    ('hamsa', 'naser', '121212121', '343434343', '2000'),
+    ('ali', 'tareq', '565656565', '787878787', '99999'),
+    ('H', 'mostafa', '232323232', '454545454', '2002'),
+

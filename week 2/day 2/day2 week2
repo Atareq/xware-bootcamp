@@ -1,0 +1,3 @@
+create database kid_mom
+create table mom(id int primary key , name varchar);
+drop database postgresql
