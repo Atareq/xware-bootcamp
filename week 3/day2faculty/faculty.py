@@ -29,7 +29,7 @@ def delete_faculty():
     print('\nFaculty not found')
 def main():
     while True:
-        print('\n1- create faculty')
+        print('1- create faculty')
         print('2- read faculty')
         print('3- update faculty')
         print('4 - delete faculty')
