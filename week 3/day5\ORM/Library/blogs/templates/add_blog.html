@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Add a Book</title>
+</head>
+<body>
+
+<h1>Add a Book to the Website</h1>
+
+<form id="addBookForm">
+  <label for="title">Enter Book name:</label>
+  <input type="text" id="title" name="title" required><br><br>
+
+  <label for="author">Author:</label>
+  <input type="text" id="author" name="author" required><br><br>
+    
+<form id="categoryForm">
+    <label>
+      <input type="checkbox" name="category" value="fiction">
+      Fiction
+    </label><br>
+  
+    <label>
+      <input type="checkbox" name="category" value="nonfiction">
+      Non-Fiction
+    </label><br>
+  
+    <label>
+      <input type="checkbox" name="category" value="mystery">
+      Mystery
+    </label><br>
+  
+    <label>
+      <input type="checkbox" name="category" value="fantasy">
+      Fantasy
+    </label><br>
+  
+    <label>
+      <input type="checkbox" name="category" value="sci-fi">
+      Science Fiction
+    </label><br>
+  <label for="genre">Genre:</label>
+  <input type="text" id="genre" name="genre" required><br><br>
+
+  <label for="publishedYear">Published Year:</label>
+  <input type="number" id="publishedYear" name="publishedYear" required><br><br>
+
+  <label for="description">Description:</label><br>
+  <textarea id="description" name="description" rows="4" cols="50" required></textarea><br><br>
+
+  <button type="submit">Add Book</button>
+</form>
+
+</body>
+</html>
